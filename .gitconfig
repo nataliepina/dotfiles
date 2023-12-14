@@ -1,11 +1,13 @@
 [user]
 	name = nataliepina
 	email = natalie.a.pina@gmail.com
+	signingkey = 24E1AB6B46C6BD291ACF2297ED0A3609DEC14130
+
 [core]
 excludesfile = ~/.gitignore
 
 [commit]
-gpgsign = true
+gpgSign = true
 
 [rebase]
 autoStash = true
@@ -13,11 +15,14 @@ autoStash = true
 [pull]
 rebase = true
 
+[push]
+default = current
+
 [init]
 defaultBranch = main
 
 [gpg]
-program = gpg2
+program = gpg
 
 [url "git@github.com:"]
 insteadOf = https://github.com/
