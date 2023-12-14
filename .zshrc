@@ -10,8 +10,6 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-
-
 # Load devbox
 eval "$(devbox global shellenv --init-hook)"
 # Load direnv
