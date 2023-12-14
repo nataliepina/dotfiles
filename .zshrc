@@ -10,16 +10,8 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-# Aliases
-alias ll='ls -l'
-alias gs='git status'
-alias vi='vim'
-alias nrs='npm run start'
 
-# Devbox
+
 # Load devbox
 eval "$(devbox global shellenv --init-hook)"
 # Load direnv
@@ -33,3 +25,21 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Opens files in vscode
 export EDITOR="code --wait"
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# Required for gpgSign 
+export GPG_TTY=$(tty)
+# Start gpg-agent
+gpg-agent --daemon 2>/dev/null
+
+
+###########
+# ALIASES #
+###########
+
+alias ll='ls -l'
+alias gs='git status'
+alias vi='vim'
+alias nrs='npm run start'
