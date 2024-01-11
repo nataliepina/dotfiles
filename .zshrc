@@ -1,12 +1,14 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
 
-plugins=(git)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
+
+# Load zsh-syntax-highlighting
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Load zsh-autosuggestions
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 source $ZSH/oh-my-zsh.sh
 
@@ -15,23 +17,13 @@ eval "$(devbox global shellenv --init-hook)"
 # Load direnv
 eval "$(direnv hook zsh)"
 
-# Load zsh-syntax-highlighting
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# Load zsh-autosuggestions
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 # Opens files in vscode
 export EDITOR="code --wait"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
-# Required for gpgSign 
+# Required for gpgSign
 export GPG_TTY=$(tty)
 # Start gpg-agent
 gpg-agent --daemon 2>/dev/null
-
 
 ###########
 # ALIASES #
@@ -43,3 +35,7 @@ alias vi='vim'
 alias nrs='npm run start'
 alias grb='git fetch && git rebase -S origin/main'
 alias gca='gc -S --amend'
+
+# Loads nvm
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
